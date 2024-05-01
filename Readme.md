@@ -18,3 +18,12 @@
     HTTPs
     Tree shaking - remove unused code from file
     Different build for dev and prod (prod - npx parcel build index.html)
+
+
+    Default export/import
+    name export/import
+..
+# reach hooks
+useState()
+useEffect()
+
