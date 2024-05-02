@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 //react element
 // React.createElement => Object => HTML element(render)
 
@@ -11,7 +12,7 @@ import Footer from "./components/Footer";
 const AppLayout = () => {
     return(
         <div className="app">
-            <Header/>
+            <Navbar/>
             <Body/>
             <Footer/>
         </div>
