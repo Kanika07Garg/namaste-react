@@ -27,3 +27,10 @@
 useState()
 useEffect()
 
+# routin
+1. Client side routing - (No API calls)
+2. Server side routing
+
+# Link -->
+    It is nothing but anchor tag, but reatc dome keeps an eye on it and you don't have to refresh the page
+
