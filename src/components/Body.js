@@ -8,16 +8,18 @@ const Body = () => {
     const [listOfRestaurants, setListofRestaurants] = useState([]);
     const [filtererdResVar, setFiltererdResVar ] = useState(listOfRestaurants);
     const [searchText, setSearchText] = useState("");
+
+    //to call the api
     useEffect(()=>{
         fecthData();
     },[])
 
-    const fecthData = async()=>{
+    const fecthData = async()  => {
         const data = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             );
         const json = await data.json();
-        setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFiltererdResVar(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
@@ -31,7 +33,7 @@ const Body = () => {
                     <button className="search-btn" onClick={()=>{
                         const filtererdRes = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                         setFiltererdResVar(filtererdRes);
-                    }}>Sarch</button>
+                    }}>Search</button>
                 </div>
                 <button className="filter-btn" onClick={()=>{
                     const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating > 4)
