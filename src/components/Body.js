@@ -2,12 +2,14 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     // local state variable - super powerful variable
     const [listOfRestaurants, setListofRestaurants] = useState([]);
     const [filtererdResVar, setFiltererdResVar ] = useState(listOfRestaurants);
     const [searchText, setSearchText] = useState("");
+    const onlineStatus = useOnlineStatus();
 
     //to call the api
     useEffect(()=>{
@@ -22,6 +24,8 @@ const Body = () => {
         setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFiltererdResVar(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+
+    if(!onlineStatus) return <h1>Oops! Something wrong</h1>
 
     return listOfRestaurants?.length === 0 ? <Shimmer/> : (
         <div className="body">

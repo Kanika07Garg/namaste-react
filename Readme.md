@@ -34,3 +34,10 @@ useEffect()
 # Link -->
     It is nothing but anchor tag, but reatc dome keeps an eye on it and you don't have to refresh the page
 
+# optimization
+    chunking
+    code splitting
+    Dynamic bundling
+    lazy loading
+    on demand loading
+
