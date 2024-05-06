@@ -29,23 +29,25 @@ const Body = () => {
 
     return listOfRestaurants?.length === 0 ? <Shimmer/> : (
         <div className="body">
-            <div className="filter"> 
-                <div className="search">
-                    <input type="text" className="search-text" value={searchText} onChange={(e)=>{
+            <div className="flex items-center"> 
+                <div className="m-4 p-4 ">
+                    <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value)                        
                     }}/>
-                    <button className="search-btn" onClick={()=>{
+                    <button className="px-3 py-2 bg-gray-300 m-4 border border-solid border-gray-800 rounded-lg" onClick={()=>{
                         const filtererdRes = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                         setFiltererdResVar(filtererdRes);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={()=>{
-                    const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating > 4)
-                    setListofRestaurants(filteredList);
-                }}
-                >Top rated resturants</button>
+                <div className="m-4 p-4">
+                    <button className="px-3 py-2 bg-gray-300 border border-solid border-gray-800 rounded-lg" onClick={()=>{
+                        const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating > 4)
+                        setListofRestaurants(filteredList);
+                    }}
+                    >Top rated resturants</button>
+                </div>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                    filtererdResVar?.map((restraut,index) => 
                  <Link key={restraut.info.id} to={'/restaurantmenu/'+restraut.info.id}><RestaurantCard  resData={restraut}/></Link>) 
