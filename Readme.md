@@ -41,3 +41,10 @@ useEffect()
     lazy loading
     on demand loading
 
+# Redux toolkit
+ - Install @reduxjs/toolkit and react-redux
+ - Build out store
+ - Create slice
+ - Dispatch
+ - Selector
+
