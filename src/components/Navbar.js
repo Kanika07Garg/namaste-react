@@ -7,7 +7,7 @@ const Header = () => {
 
     //subscribing to our store using selector
     const cartItems = useSelector((store)=>store.cart.items);
-    console.log(cartItems);
+    // console.log(cartItems);
     const [btnName, setBtnName] = useState("Login");
     const { loggedInUser } = useContext(UserContext)
     return(

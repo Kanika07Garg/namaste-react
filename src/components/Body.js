@@ -25,20 +25,19 @@ const Body = () => {
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             );
         const json = await data.json();
-        console.log(json?.data)
+        // console.log(json?.data)
         // setListofRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListofRestaurants((json?.data?.cards.find((c)=>c.card?.card?.gridElements?.infoWithStyle?.restaurants).card?.card?.gridElements?.infoWithStyle?.restaurants));
         setFiltererdResVar((json?.data?.cards.find((c)=>c.card?.card?.gridElements?.infoWithStyle?.restaurants).card?.card?.gridElements?.infoWithStyle?.restaurants));
         // setFiltererdResVar(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
     };
-console.log('filtereed',filtererdResVar)
     if(!onlineStatus) return <h1>Oops! Something wrong</h1>
 
     return listOfRestaurants?.length === 0 ? <Shimmer/> : (
         <div className="body">
             <div className="flex items-center"> 
                 <div className="m-4 p-4 ">
-                    <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
+                    <input type="text" data-testid="searchInput" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value)                        
                     }}/>
                     <button className="px-3 py-2 bg-gray-300 m-4 border border-solid border-gray-800 rounded-lg" onClick={()=>{

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { MENU_URL } from "./constant";
 import { useState, useEffect } from "react";
 

@@ -48,3 +48,20 @@ useEffect()
  - Dispatch
  - Selector
 
+# testing
+- Unit testing - isolated testing of component
+- Integration testing - interconnected component
+- E2E testing - end to end, whole app testing
+
+# setting up testing env
+- install @testing-library/react
+- install jest
+- install babel dependencies for babel
+- settin up babel.config.js
+- create .parcelrc
+- jest configuration - npx jest -init
+- install jsdom libary - npm i -D jest-environment-jsdom
+- insall @babel/preset-react --- to make jsx works in test cases
+- set babel.config.js (add above library)
+- install @testing-library/jest-dom
+
